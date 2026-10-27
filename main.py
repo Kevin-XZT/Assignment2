@@ -40,6 +40,9 @@ def cost_per_class(annual_cost, credits):
     return cost_per_credit(annual_cost, credits) * CS1430_CREDITS / CS1430_MEETINGS_PER_SEMESTER
 
 
+def worth_it_cost_per_credit(annual_cost, credits):
+    return cost_per_credit(annual_cost, credits)
+
 # ---- PROGRAM ----
 
 def main():
@@ -55,7 +58,7 @@ def main():
         print("3. Cost per class day")
         print("4. Cost per credit")
         print("5. Cost per CS1430 class")
-        print("6. Worth It?")
+        print("6. What does one credit cost?")
         print("Q. Quit")
 
         choice = input("Choose an option: ")
@@ -77,7 +80,11 @@ def main():
         elif choice == "5":
             amount = cost_per_class(annual_cost, credits)
             print(f"Cost per CS1430 class: ${amount:,.2f}")
-       
+        elif choice == "6":
+            amount = worth_it_cost_per_credit(annual_cost, credits)
+            print(f"One credit costs ${amount:,.2f} this semester.")
+        else:
+            print("Invalid choice")
 
 
 # ---- LAUNCH: do not change ----
